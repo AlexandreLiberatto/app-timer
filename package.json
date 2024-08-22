@@ -17,7 +17,9 @@
     "react-native-web": "~0.19.10",
     "@expo/metro-runtime": "~3.2.3",
     "@react-native-picker/picker": "2.7.5",
-    "expo-linear-gradient": "~13.0.2"
+    "expo-linear-gradient": "~13.0.2",
+    "@sentry/react-native": "~5.22.0",
+    "expo-av": "~14.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
