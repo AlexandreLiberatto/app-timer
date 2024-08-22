@@ -8,9 +8,9 @@ export default function App() {
 
   console.disableYellowBox = true;
 
+  const [estado, setarEstado] = useState('selecionar');
   const [segundos, setarSegundos] = useState(0);
   const [minutos, setarMinutos] = useState(0);
-
   const [alarmeSound, setarAlarmeSound] = useState([
     {
       id:1,
@@ -48,6 +48,8 @@ export default function App() {
     setarAlarmeSound(alarmesTemp);
   }
 
+  if(estado == 'selecionar'){
+
   return (
     <View style={styles.container}>
        <StatusBar style="auto" />
@@ -71,7 +73,7 @@ export default function App() {
       >
         { numeros.map(function(val){
           return(
-          <Picker.Item style={{color:'white'}} label={val.toString()} value={val.toString()} />
+          <Picker.Item label={val.toString()} value={val.toString()} />
          )
         })
         }
@@ -84,7 +86,7 @@ export default function App() {
       >
         { numeros.map(function(val){
           return(
-          <Picker.Item style={{color:'white'}} label={val.toString()} value={val.toString()} />
+          <Picker.Item label={val.toString()} value={val.toString()} />
          )
         })
         }
@@ -108,9 +110,22 @@ export default function App() {
         })}
            
       </View>
-
+        <TouchableOpacity onPress={()=>setarEstado('iniciar')} style={styles.btnIniciar}>
+          <Text>Iniciar</Text>
+        </TouchableOpacity>
     </View>
+    
   );
+} else if (estado === 'iniciar') {
+  // TODO: na próxima aula trabalharemos a lógica do timer/contador
+  return(
+  <View>
+    <Text>🏃‍♂️💨💨💨</Text>
+  </View>
+  );
+}
+
+return null;
 }
 
 const styles = StyleSheet.create({
@@ -136,6 +151,16 @@ const styles = StyleSheet.create({
     borderRadius:15,
     alignItems: 'center',
     borderColor:'white',
+    borderWidth:1
+  },
+  btnIniciar: {
+    marginBottom:10,
+    width:150,
+    padding:8,
+    backgroundColor:'#00FF00',
+    borderRadius:15,
+    alignItems: 'center',
+    borderColor:'#013220',
     borderWidth:1
   }
 });
