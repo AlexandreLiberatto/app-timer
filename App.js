@@ -5,6 +5,8 @@ import { Picker } from '@react-native-picker/picker'; // Importa o Picker corret
 
 export default function App() {
 
+  console.disableYellowBox = true;
+
   const [segundos, setarSegundos] = useState(0);
   const [minutos, setarMinutos] = useState(0);
 
@@ -21,21 +23,40 @@ export default function App() {
     }
   ]);
 
+  var numeros = [];
+  for(var i = 1; i <= 60; i++){
+    numeros.push(i);
+  }
+
   return (
     <View style={styles.container}>
       <Text style={{ color: 'white', fontSize: 30 }}>Selecione seu Tempo ⏳</Text>
       <View style={{flexDirection:'row'}}>
+      <Text style={{color:'white'}}>Minutos:</Text>
       <Picker
+        selectedValue={minutos}
+        onValueChange={(itemValue, itemIndex) => setarMinutos(itemValue)}
         style={{height:50,width:100}}
       >
-        <Picker.Item label="10 segundos" value={10} />
-        <Picker.Item label="20 segundos" value={20} />
+        { numeros.map(function(val){
+          return(
+          <Picker.Item label={val.toString()} value={val.toString()} />
+         )
+        })
+        }
       </Picker>
+      <Text style={{color:'white'}}>Segundos:</Text>
       <Picker
+        selectedValue={segundos}
+        onValueChange={(itemValue, itemIndex) => setarSegundos(itemValue)}
         style={{height:50,width:100}}
       >
-        <Picker.Item label="10 segundos" value={10} />
-        <Picker.Item label="20 segundos" value={20} />
+        { numeros.map(function(val){
+          return(
+          <Picker.Item label={val.toString()} value={val.toString()} />
+         )
+        })
+        }
       </Picker>
       </View>
       <StatusBar style="auto" />
