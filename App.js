@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { LinearGradient } from 'expo-linear-gradient';
 import Contador from './Contador';
+import { Video, ResizeMode } from 'expo-av';
 
 export default function App() {
   console.disableYellowBox = true;
@@ -46,7 +47,7 @@ export default function App() {
       <View style={styles.container}>
         <StatusBar style="auto" />
         <LinearGradient
-          colors={['rgba(59, 29, 105,1)', 'rgba(59, 29, 105,0.8)']}
+          colors={['#00FF40', '#00FF40']}
           style={styles.background}
         />
         <Text style={styles.title}>Selecione o seu Tempo:</Text>
